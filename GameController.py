@@ -30,9 +30,13 @@ class GameController:
                                 player.jailed = 3
                                 self.move(player, 10)
         su = sum(self.freq.values())
+        av = 100/40
+        max_key = max(self.freq, key=self.freq.get)
         for k,v in self.freq.items():
             per = v/su*100
-            print(f"{k} - {per:.2f}")
+            print(f"{k}:   {per:.2f}   {(per-av)*100/av:.2f}")
+
+        print(max_key)
 
 
     def move(self, player, index):
